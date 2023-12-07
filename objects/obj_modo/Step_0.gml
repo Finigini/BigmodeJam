@@ -39,8 +39,13 @@ if input_check("right",0,0)
 		speedCur = speedCur*0.95;
 	}
 }
-if input_check("accept",0,10) and place_meeting(x,y+1,obj_solid)
+if input_check("accept",0,10) and (place_meeting(x,y+1,obj_solid) or coyoteTime > 0)
 {
+	coyoteTime = 0;
+	if !audio_is_playing(sou_jump)
+	{
+		audio_play_sound(sou_jump,10,false,1,0,0.7);
+	}
 	vspeed = -10;
 }
 
@@ -48,11 +53,27 @@ if place_free(x+speedCur,y)
 {
 	x += speedCur;
 }
+else
+{
+	speedCur = 0;
+}
 }
 
 if canMove == true
 {
-	if abs(speedCur) > 10
+	if speedCur < 10 and !place_meeting(x,y+1,obj_solid)
+	{
+		sprite_index = spr_modoJump;
+		if vspeed > 0
+		{
+			image_index = 1;
+		}
+		else if vspeed < 0
+		{
+			image_index = 0;
+		}
+	}
+	else if abs(speedCur) > 10
 	{
 		sprite_index = spr_modoSprint;
 	}
@@ -92,4 +113,37 @@ if place_meeting(x,y+vspeed,obj_solid)
 else if !place_meeting(x,y+1,obj_solid)
 {
 	gravity = 0.5;
+}
+if coyoteTime > 0
+{
+	coyoteTime -= 1;
+}
+
+//footstep and scuttling sounds and coyote time
+if place_meeting(x,y+1,obj_solid)
+{
+	coyoteTime = 10;
+	var curImage = floor(image_index);
+	if (sprite_index == spr_modoWalk
+	and (curImage == 0 or curImage == 3))
+	{
+		if !audio_is_playing(footstepSound)
+		{
+			footstepSound = audio_play_sound(sou_step,10,false,0.5);
+		}
+	}
+	if (sprite_index == spr_modoRun
+	and (curImage == 2 or curImage == 8))
+	{
+		if !audio_is_playing(footstepSound)
+		{
+			footstepSound = audio_play_sound(sou_step,10,false,1);
+		}
+	}
+	if (sprite_index == spr_modoSprint
+	and curImage == 0)
+	{
+		audio_stop_sound(footstepSound);
+		footstepSound = audio_play_sound(sou_scuttle,10,false,0.2);
+	}
 }

@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_egg",
+  "name": "obj_bone",
   "spriteId": {
-    "name": "spr_egg",
-    "path": "sprites/spr_egg/spr_egg.yy",
+    "name": "spr_bone",
+    "path": "sprites/spr_bone/spr_bone.yy",
   },
   "solid": false,
   "visible": true,
