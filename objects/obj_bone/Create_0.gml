@@ -6,3 +6,5 @@ speed = 0;
 alarm[0] = 30;
 
 collected = false;
+
+depth = -10;
