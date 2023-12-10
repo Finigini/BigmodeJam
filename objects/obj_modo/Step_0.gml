@@ -39,14 +39,17 @@ if input_check("right",0,0)
 		speedCur = speedCur*0.95;
 	}
 }
-if input_check("accept",0,10) and (place_meeting(x,y+1,obj_solid) or coyoteTime > 0)
+if input_check_pressed("accept",0,10) and (place_meeting(x,y+1,obj_solid) or coyoteTime > 0)
+and !place_meeting(x,y-10,obj_solid)
 {
 	coyoteTime = 0;
-	if !audio_is_playing(sou_jump)
-	{
-		audio_play_sound(sou_jump,10,false,1,0,0.7);
-	}
+	audio_stop_sound(sou_jump)
+	audio_play_sound(sou_jump,10,false,1,0,0.7);
 	vspeed = -10;
+}
+if vspeed < 0 and input_check_released("accept",0,0) //variable jump height if jump released
+{
+	vspeed = 0;
 }
 
 if place_free(x+speedCur,y)
