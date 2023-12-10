@@ -1,8 +1,8 @@
 /// @description create event
-speedMax = 12;
-speedMin = 2;
+speedMax = 3;
+speedMin = 3;
 speedCur = 0;
-acceleration = 0.05;
+acceleration = 0;
 coyoteTime = 0;
 
 canMove = true;

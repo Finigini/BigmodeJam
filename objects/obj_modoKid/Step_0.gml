@@ -76,7 +76,7 @@ if canMove == true
 {
 	if speedCur < 10 and !place_meeting(x,y+1,obj_solid)
 	{
-		sprite_index = spr_modoJump;
+		sprite_index = spr_modoKidJump;
 		if vspeed > 0
 		{
 			image_index = 1;
@@ -86,32 +86,15 @@ if canMove == true
 			image_index = 0;
 		}
 	}
-	else if skidding == true and place_meeting(x,y+1,obj_solid)
-	{
-		sprite_index = spr_modoRun;
-		image_index = 0;
-		if !audio_is_playing(sou_skid)
-		{
-			footstepSound = audio_play_sound(sou_skid,10,false);
-		}
-	}
 	else
 	{
-		if abs(speedCur) > 10
+		if speedCur != 0
 		{
-			sprite_index = spr_modoSprint;
-		}
-		else if abs(speedCur) > 4
-		{
-			sprite_index = spr_modoRun;
-		}
-		else if speedCur != 0
-		{
-			sprite_index = spr_modoWalk;
+			sprite_index = spr_modoKidWalk;
 		}
 		else
 		{
-			sprite_index = spr_modoIdle;
+			sprite_index = spr_modoKidIdle;
 		}
 	}
 }
@@ -144,31 +127,17 @@ if coyoteTime > 0
 	coyoteTime -= 1;
 }
 
-//footstep and scuttling sounds and coyote time
+//footstep and coyote time
 if place_meeting(x,y+1,obj_solid)
 {
 	coyoteTime = 10;
 	var curImage = floor(image_index);
-	if (sprite_index == spr_modoWalk
-	and (curImage == 0 or curImage == 3))
+	if (sprite_index == spr_modoKidWalk
+	and (curImage == 0 or curImage == 2))
 	{
 		if !audio_is_playing(footstepSound)
 		{
 			footstepSound = audio_play_sound(sou_step,10,false,0.5);
 		}
-	}
-	if (sprite_index == spr_modoRun
-	and (curImage == 2 or curImage == 8))
-	{
-		if !audio_is_playing(footstepSound)
-		{
-			footstepSound = audio_play_sound(sou_step,10,false,1);
-		}
-	}
-	if (sprite_index == spr_modoSprint
-	and curImage == 0)
-	{
-		audio_stop_sound(footstepSound);
-		footstepSound = audio_play_sound(sou_scuttle,10,false,0.2);
 	}
 }

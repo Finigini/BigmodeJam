@@ -76,7 +76,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "GRPModoKid",
-    "path": "folders/Sprites/SPRModo/GRPModoKid.yy",
+    "name": "SPRModoKid",
+    "path": "folders/Sprites/SPRModo/SPRModoKid.yy",
   },
 }

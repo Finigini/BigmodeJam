@@ -39,7 +39,7 @@
     "name": "spr_modoKidWalk",
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 6.0,
+    "playbackSpeed": 8.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
@@ -74,7 +74,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "GRPModoKid",
-    "path": "folders/Sprites/SPRModo/GRPModoKid.yy",
+    "name": "SPRModoKid",
+    "path": "folders/Sprites/SPRModo/SPRModoKid.yy",
   },
 }
