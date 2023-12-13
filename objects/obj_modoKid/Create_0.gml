@@ -8,5 +8,6 @@ coyoteTime = 0;
 canMove = true;
 footstepSound = noone;
 skidding = false;
+hovering = false;
 
 depth = 0;

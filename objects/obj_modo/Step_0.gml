@@ -3,6 +3,10 @@ if speedCur > speedMax
 {
 	speedCur = speedMax;
 }
+if speedCur == 0
+{
+	skidding = false;
+}
 
 //movement
 if canMove == true
@@ -75,6 +79,7 @@ else
 if canMove == true
 {
 	if speedCur < 10 and !place_meeting(x,y+1,obj_solid)
+	and !place_meeting(x,y+1,obj_powerline)
 	{
 		sprite_index = spr_modoJump;
 		if vspeed > 0
@@ -86,7 +91,8 @@ if canMove == true
 			image_index = 0;
 		}
 	}
-	else if skidding == true and place_meeting(x,y+1,obj_solid)
+	else if skidding == true 
+	and (place_meeting(x,y+1,obj_solid) or place_meeting(x,y+1,obj_powerline))
 	{
 		sprite_index = spr_modoRun;
 		image_index = 0;
@@ -135,7 +141,16 @@ if place_meeting(x,y+vspeed,obj_solid)
 		move_contact_solid(270,-1);
 	}
 }
-else if !place_meeting(x,y+1,obj_solid)
+else if place_meeting(x,y+vspeed,obj_powerline) and vspeed > 0
+{
+	gravity = 0;
+	vspeed = 0;
+	if vspeed > 0
+	{
+		move_contact_all(270,-1);
+	}
+}
+else if !place_meeting(x,y+1,obj_solid) and !place_meeting(x,y+1,obj_powerline)
 {
 	gravity = 0.5;
 }
@@ -145,7 +160,7 @@ if coyoteTime > 0
 }
 
 //footstep and scuttling sounds and coyote time
-if place_meeting(x,y+1,obj_solid)
+if (place_meeting(x,y+1,obj_solid) or place_meeting(x,y+1,obj_powerline))
 {
 	coyoteTime = 10;
 	var curImage = floor(image_index);
