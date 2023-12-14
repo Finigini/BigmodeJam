@@ -159,11 +159,11 @@ if coyoteTime > 0
 	coyoteTime -= 1;
 }
 
+var curImage = floor(image_index);
 //footstep and scuttling sounds and coyote time
 if (place_meeting(x,y+1,obj_solid) or place_meeting(x,y+1,obj_powerline))
 {
 	coyoteTime = 10;
-	var curImage = floor(image_index);
 	if (sprite_index == spr_modoWalk
 	and (curImage == 0 or curImage == 3))
 	{
@@ -185,5 +185,15 @@ if (place_meeting(x,y+1,obj_solid) or place_meeting(x,y+1,obj_powerline))
 	{
 		audio_stop_sound(footstepSound);
 		footstepSound = audio_play_sound(sou_scuttle,10,false,0.2);
+	}
+}
+
+//egg sound
+if sprite_index == spr_modoEatEgg
+and curImage == 15
+{
+	if !audio_is_playing(sou_gulp)
+	{
+		audio_play_sound(sou_gulp,10,false);
 	}
 }

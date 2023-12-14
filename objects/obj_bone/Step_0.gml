@@ -10,6 +10,10 @@ and collected == false
 	image_xscale = 1.5;
 	image_yscale = 1.5;
 	direction = 90;
+	if instance_exists(obj_control)
+	{
+		obj_control.bones += 1;
+	}
 }
 
 if collected == true

@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_powerModomode",
   "spriteId": {
-    "name": "spr_powerKidmode",
-    "path": "sprites/spr_powerKidmode/spr_powerKidmode.yy",
+    "name": "spr_powerNormalmode",
+    "path": "sprites/spr_powerNormalmode/spr_powerNormalmode.yy",
   },
   "solid": false,
   "visible": true,

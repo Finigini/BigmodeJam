@@ -17,6 +17,7 @@ if instance_exists(obj_modo)
 		{
 			instance_create_depth(x,y,-100,obj_crateSplinters);
 		}
+		audio_play_sound(sou_smashCrate,10,false);
 		instance_destroy();
 	}
 }

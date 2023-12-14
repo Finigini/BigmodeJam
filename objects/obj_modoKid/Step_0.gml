@@ -166,8 +166,8 @@ if coyoteTime > 0
 	coyoteTime -= 1;
 }
 
-//footstep and coyote time
 var curImage = floor(image_index);
+//footstep and coyote time
 if place_meeting(x,y+1,obj_solid) or place_meeting(x,y+1,obj_powerline)
 {
 	coyoteTime = 10;
@@ -185,4 +185,13 @@ if (sprite_index == spr_modoKidHover
 and (curImage == 2))
 {
 	audio_play_sound(sou_propeller,10,false);
+}
+//egg sound
+if sprite_index == spr_modoEatEgg
+and curImage == 15
+{
+	if !audio_is_playing(sou_gulp)
+	{
+		audio_play_sound(sou_gulp,10,false);
+	}
 }
