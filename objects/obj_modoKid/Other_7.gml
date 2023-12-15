@@ -7,6 +7,10 @@ if sprite_index = spr_modoEatEgg
 	if instance_exists(obj_control)
 	{
 		obj_control.eggs++;
+		with(instance_create_depth(x,y,-1000,obj_popupText))
+		{
+			sprite_index = spr_popupEggcellent;
+		}
 	}
 }
 
