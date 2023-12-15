@@ -2,7 +2,7 @@
 
 alarm[0] = 60;
 
-if timeSeconds < 59
+if timeSeconds < 59 and win == false
 {
 	timeSeconds++;
 	if clockImage < 9
@@ -14,7 +14,7 @@ if timeSeconds < 59
 		clockImage = 0;
 	}
 }
-else
+else if win == false
 {
 	timeSeconds = 0;
 	timeMinutes++;

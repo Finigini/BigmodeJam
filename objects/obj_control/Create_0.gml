@@ -19,3 +19,10 @@ alarm[0] = 60;
 
 checkPointX = 0;
 checkPointY = 0;
+
+audio_play_sound(mus_mainTheme,10,true);
+
+win = false;
+rank = 0;
+
+canRestart = false;

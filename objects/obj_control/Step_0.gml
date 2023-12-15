@@ -8,3 +8,9 @@ and eggsMax == 0
 }
 
 boneDirection += 5;
+
+if canRestart == true
+and input_check_pressed("accept",0,0)
+{
+	game_restart();
+}
