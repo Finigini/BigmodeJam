@@ -2,8 +2,7 @@
 
 if instance_exists(obj_control)
 {
-	canMove = true;
-	sprite_index = spr_modoKidIdle;
+	sprite_index = spr_modoChange;
 	x = obj_control.checkPointX;
 	y = obj_control.checkPointY;
 }

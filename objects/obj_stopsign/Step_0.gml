@@ -7,8 +7,8 @@ and checkpoint == false
 	sprite_index = spr_stopsignMad;
 	if instance_exists(obj_control)
 	{
-		obj_control.checkPointX = obj_camera.x;
-		obj_control.checkPointY = obj_camera.y;
+		obj_control.checkPointX = x;
+		obj_control.checkPointY = y;
 	}
 	with(instance_create_depth(x,y,-1000,obj_popupText))
 	{
