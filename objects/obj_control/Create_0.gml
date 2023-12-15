@@ -16,6 +16,3 @@ timeSeconds = 0;
 timeMinutes = 0;
 
 alarm[0] = 60;
-
-checkPointX = 0;
-checkPointY = 0;
