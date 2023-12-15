@@ -8,8 +8,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "OBJCharacters",
-    "path": "folders/Objects/OBJCharacters.yy",
+    "name": "OBJenemies",
+    "path": "folders/Objects/OBJenemies.yy",
   },
   "parentObjectId": null,
   "persistent": false,
